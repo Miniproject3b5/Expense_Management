@@ -33,8 +33,6 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   Expense_management:
-      example:
-          schema: example 
       staging:
           schema: staging
           materialized: view
