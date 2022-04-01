@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: PC_DBT_DB
+    database: PC_DBT_DB
+    schema: EXPENSE_CLONE 
+    tables:
+      - name: bank_check2
+      - name: card_check2
+      - name : customer_check2
+      - name : location_check2
+      - name : transaction_check2
