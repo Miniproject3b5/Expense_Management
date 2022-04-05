@@ -1,3 +1,4 @@
+-- depends_on: {{ ref('customer_staging') }}
 {{ 
 config(
       materialized='incremental',
@@ -5,14 +6,14 @@ config(
       tags = 'marts'
       ) 
 }}
-
 {% if not is_incremental() %}
+  -- this filter will only be applied on an incremental run
+    
 with customer_source as (
 
-    select * from {{ ref('customer_staging') }}
+    select * from {{source('EXPENSE_MANAGEMENT_DB','CUSTOMER') }}
       
 ),
-
 
 final as (
     select * from customer_source
@@ -21,18 +22,14 @@ final as (
 select * from final
  
 {% endif %}
-
-
 {% if is_incremental() %}
-  -- this filter will only be applied on an incremental run
+  -- this filter will only be applied on an non incremental run
     
 with customer_source as (
 
     select * from {{ ref('customer_staging') }}
       
 ),
-
-
 final as (
     select * from customer_source
 )

@@ -4,7 +4,7 @@ config(
       ) 
 }}
 with source_transaction as (
-     select * from {{source('PC_DBT_DB','transaction_check2') }}
+     select * from {{source('EXPENSE_MANAGEMENT_DB','transaction_check2') }}
 ),
 
 final as (
@@ -20,7 +20,7 @@ SOURCE_NUMBER,
 PROCESSED_TIMESTAMP,
 CUSTOMER_ID,
 CATEGORY from source_transaction
-     where metadata$action = 'insert'
+     where metadata$action = 'INSERT'
 )
 
 select * from final 

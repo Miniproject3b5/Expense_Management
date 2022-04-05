@@ -4,7 +4,7 @@ config(
       ) 
 }}
 with source_card1 as (
-    select * from {{source('PC_DBT_DB','card_check2') }}
+    select * from {{source('EXPENSE_MANAGEMENT_DB','card_check2') }}
 ),
 
 final as (
@@ -14,7 +14,7 @@ final as (
      card_type , 
      card_vendor , 
      validity , bank_name ,created_date ,last_modified  from source_card1
-     where metadata$action = 'insert'
+     where metadata$action = 'INSERT'
 )
 
 select * from final

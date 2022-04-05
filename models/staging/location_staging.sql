@@ -4,12 +4,12 @@ config(
       ) 
 }}
 with source_location as (
-     select * from {{source('PC_DBT_DB','location_check2') }}
+     select * from {{source('EXPENSE_MANAGEMENT_DB','location_check2') }}
 ),
 
 final as (
     select location_id , city , state , pincode  from source_location
-    where metadata$action = 'insert'
+    where metadata$action = 'INSERT'
 )
 
 select * from final

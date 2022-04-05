@@ -4,7 +4,7 @@ config(
       ) 
 }}
 with source_customer1 as (
-     select * from {{source('PC_DBT_DB','customer_check2') }}
+     select * from {{source('EXPENSE_MANAGEMENT_DB','customer_check2') }}
 ),
 
 final as (
@@ -13,12 +13,13 @@ final as (
       date_of_birth , 
       gender  ,
       income ,
+      PROFESSION ,
       phone_number ,
       email_id ,
       location_id ,
       created_date  ,
       last_modified from source_customer1
-      where metadata$action = 'insert'
+      where metadata$action = 'INSERT'
 )
 
 select * from final

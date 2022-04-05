@@ -5,7 +5,7 @@ config(
 }}
 
 with source_bank1 as (
-     select * from {{source('PC_DBT_DB','bank_check2') }}
+     select * from {{source('EXPENSE_MANAGEMENT_DB','bank_check2') }}
 ),
 
 final as (
@@ -16,7 +16,7 @@ final as (
      branch , 
      IFSC_CODE , created_date ,
      last_modified from source_bank1 
-     where metadata$action = 'insert'
+     where metadata$action = 'INSERT'
 )
 
 select * from final 

@@ -1,3 +1,4 @@
+  -- depends_on: {{ ref('card_staging') }}
 {{ 
 config(
       materialized='incremental',
@@ -6,22 +7,21 @@ config(
       ) 
 }}
 {% if not is_incremental() %}
-  -- this filter will only be applied on an incremental run
+  -- this filter will only be applied on an non incremental run
     
 with card_source as (
 
-    select * from {{ ref('card_staging') }}
+    select * from {{source('EXPENSE_MANAGEMENT_DB','CARD_DETAILS') }}
       
 ),
 
 final as (
-    select * from card_source
+    select CARD_ID, CARD_VENDOR, CARD_TYPE ,CARD_NUMBER , VALIDITY , CREATED_DATE from card_source
 )
 
 select * from final
  
 {% endif %}
-
 {% if is_incremental() %}
   -- this filter will only be applied on an incremental run
     
@@ -32,7 +32,7 @@ with card_source as (
 ),
 
 final as (
-    select * from card_source
+    select CARD_ID, CARD_VENDOR, CARD_TYPE ,CARD_NUMBER , VALIDITY , CREATED_DATE  from card_source
 )
 
 select * from final
