@@ -11,7 +11,7 @@ config (
     
 with bank_source as (
 
-    select * from {{source('EXPENSE_MANAGEMENT_DB','BANK_DETAILS') }}
+    select *  from {{source('EXPENSE_MANAGEMENT_DB','BANK_DETAILS') }}
       
 ),
 
@@ -19,7 +19,7 @@ final as (
     select BANK_ID,BANK_NAME,BANK_ACCOUNT_NUMBER , BRANCH, IFSC_CODE , CREATED_DATE from bank_source
 )
 
-select * from final
+select distinct * from final
  
 {% endif %}
 
@@ -38,6 +38,6 @@ final as (
     select BANK_ID,BANK_NAME,BANK_ACCOUNT_NUMBER , BRANCH, IFSC_CODE , CREATED_DATE from bank_source
 )
 
-select * from final
+select distinct * from final
  
 {% endif %}

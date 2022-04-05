@@ -11,7 +11,7 @@ config(
     
 with location_source as (
 
-    select * from {{source('EXPENSE_MANAGEMENT_DB','LOCATION') }}
+    select distinct * from {{source('EXPENSE_MANAGEMENT_DB','LOCATION') }}
       
 ),
 
@@ -19,7 +19,7 @@ final as (
     select * from location_source
 )
 
-select * from final
+select distinct * from final
  
 {% endif %}
 
@@ -39,6 +39,6 @@ final as (
     select * from location_source
 )
 
-select * from final
+select distinct * from final
  
 {% endif %}

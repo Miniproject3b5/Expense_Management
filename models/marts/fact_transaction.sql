@@ -15,18 +15,18 @@ with transaction_source as (
                 'SOURCE_NUMBER', 
                 'CUSTOMER_ID', 
                 'TRANSACTION_SOURCE',     
-            ]) }} as customersid  , TRANSACTION_ID,TRANSACTION_AMOUNT as AMOUNT , VENDOR_NAME ,     
-            CATEGORY , TRANSACTION_TYPE,
+            ]) }} as customersid  , TRANSACTION_ID,TRANSACTION_AMOUNT as AMOUNT , VENDOR_NAME , 
+            CATEGORY , TRANSACTION_TYPE, 
              TRANSACTION_TIMESTAMP,PROCESSED_TIMESTAMP  from {{source('EXPENSE_MANAGEMENT_DB','TRANSACTION_DETAILS') }}
       
 ),
 
 
 final as (
-    select * from transaction_source
+    select distinct * from transaction_source
 )
 
-select * from final
+select distinct * from final
  
 {% endif %} 
 
@@ -47,10 +47,10 @@ with transaction_source as (
 
 
 final as (
-    select * from transaction_source
+    select distinct * from transaction_source
 )
 
-select * from final
+select distinct * from final
  
 {% endif %} 
 

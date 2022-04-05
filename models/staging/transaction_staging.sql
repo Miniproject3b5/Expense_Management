@@ -23,4 +23,4 @@ CATEGORY from source_transaction
      where metadata$action = 'INSERT'
 )
 
-select * from final 
+select distinct * from final 

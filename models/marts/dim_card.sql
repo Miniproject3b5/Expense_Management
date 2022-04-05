@@ -19,7 +19,7 @@ final as (
     select CARD_ID, CARD_VENDOR, CARD_TYPE ,CARD_NUMBER , VALIDITY , CREATED_DATE from card_source
 )
 
-select * from final
+select distinct * from final
  
 {% endif %}
 {% if is_incremental() %}
@@ -35,6 +35,6 @@ final as (
     select CARD_ID, CARD_VENDOR, CARD_TYPE ,CARD_NUMBER , VALIDITY , CREATED_DATE  from card_source
 )
 
-select * from final
+select distinct * from final
  
 {% endif %}

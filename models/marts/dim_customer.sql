@@ -19,7 +19,7 @@ final as (
     select * from customer_source
 )
 
-select * from final
+select distinct * from final
  
 {% endif %}
 {% if is_incremental() %}
@@ -34,6 +34,6 @@ final as (
     select * from customer_source
 )
 
-select * from final
+select distinct * from final
  
 {% endif %}

@@ -35,7 +35,7 @@ final as
             ]) }} as customersid,
             * from aggregated  
 )
-select * from final
+select distinct * from final
 {% endif %} 
 
 {% if is_incremental() %}
@@ -66,5 +66,5 @@ final as
             ]) }} as customersid,
             * from aggregated  
 )
-select * from final
+select distinct * from final
 {% endif %} 

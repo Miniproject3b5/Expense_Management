@@ -56,7 +56,7 @@ models:
       - name: AMOUNT||VENDOR_NAME||CATEGORY||TRANSACTION_TYPE||TRANSACTION_TIMESTAMP||PROCESSED_TIMESTAMP
         tests:
           - not_null
-      - name: TRANSACTION_ID||CUSTOMERSID
+      - name: TRANSACTION_ID
         tests:
           - unique
           - not_null          

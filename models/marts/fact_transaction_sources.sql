@@ -19,7 +19,7 @@ final as
                 'customer_id',    ]) }} as ID , customer_id , TRANSACTION_ID from transaction_source 
     
 )
-select * from final
+select distinct * from final
 
 {% endif %}
 {% if is_incremental() %}
@@ -35,6 +35,6 @@ final as
                 'CUSTOMER_ID',    ]) }} as ID , CUSTOMER_ID , TRANSACTION_ID from transaction_source 
     
 )
-select * from final
+select distinct * from final
 
 {% endif %}

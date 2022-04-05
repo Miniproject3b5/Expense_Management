@@ -22,4 +22,4 @@ final as (
       where metadata$action = 'INSERT'
 )
 
-select * from final
+select distinct * from final
