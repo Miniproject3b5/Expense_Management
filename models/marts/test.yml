@@ -45,10 +45,10 @@ models:
       - name: CITY||STATE||PINCODE||LOCATION_ID
         tests:
           - not_null 
-      # - name: LOCATION_ID
-      #   tests:
-      #     - unique
-      #     - not_null 
+      - name: LOCATION_ID
+        tests:
+          - unique
+          - not_null 
 
   - name: fact_transaction
     description: "Source is transaction_details"
@@ -56,10 +56,10 @@ models:
       - name: TRANSACTION_ID||AMOUNT||VENDOR_NAME||CATEGORY||TRANSACTION_TYPE||TRANSACTION_TIMESTAMP||PROCESSED_TIMESTAMP
         tests:
           - not_null
-      # - name: TRANSACTION_ID
-      #   tests:
-      #     - unique
-      #     - not_null          
+      - name: TRANSACTION_ID
+        tests:
+          - unique
+          - not_null          
 
   - name: lookup_customer_sources
     description: "Source is transaction_details"
