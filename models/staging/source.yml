@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: EXPENSE_MANAGEMENT_DB
+    database: EXPENSE_MANAGEMENT_DB
+    schema: EXPENSE_SCHEMA 
+    tables:
+      - name: bank_check2
+      - name: card_check2
+      - name : customer_check2
+      - name : location_check2
+      - name : transaction_check2
+      - name : BANK_DETAILS
+      - name : CARD_DETAILS
+      - name : TRANSACTION_DETAILS
+      - name : CUSTOMER
+      - name : LOCATION

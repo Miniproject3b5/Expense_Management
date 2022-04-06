@@ -1,0 +1,75 @@
+version: 2
+ 
+models:
+  - name: dim_bank
+    description: "source is bank_details"
+    columns:
+      - name: BANK_NAME||BRANCH||IFSC_CODE||CREATED_DATE
+        tests:  
+          - not_null
+      - name : BANK_ID||BANK_ACCOUNT_NUMBER 
+        tests:
+          - unique
+          - not_null
+
+
+  - name: dim_card
+    description: "source is card details"
+    columns:
+      - name: CARD_VENDOR||CARD_TYPE||VALIDITY||CREATED_DATE
+        tests:
+          - not_null 
+      - name: CARD_ID||CARD_NUMBER
+        tests:
+          - unique
+          - not_null           
+
+
+
+  - name: dim_customer
+    description: "Source is customer_details"
+    columns:
+      - name: CUSTOMER_NAME||DATE_OF_BIRTH||GENDER||INCOME||PROFESSION||LOCATION_ID||CREATED_DATE||LAST_MODIFIED
+        tests:
+          - not_null
+      - name: CUSTOMER_ID||PHONE_NUMBER||EMAIL_ID
+        tests:
+          - unique
+          - not_null  
+   
+
+
+  - name: dim_location
+    description: "Source is location_details"
+    columns:
+      - name: CITY||STATE||PINCODE||LOCATION_ID
+        tests:
+          - not_null 
+      # - name: LOCATION_ID
+      #   tests:
+      #     - unique
+      #     - not_null 
+
+  - name: fact_transaction
+    description: "Source is transaction_details"
+    columns:
+      - name: TRANSACTION_ID||AMOUNT||VENDOR_NAME||CATEGORY||TRANSACTION_TYPE||TRANSACTION_TIMESTAMP||PROCESSED_TIMESTAMP
+        tests:
+          - not_null
+      # - name: TRANSACTION_ID
+      #   tests:
+      #     - unique
+      #     - not_null          
+
+  - name: lookup_customer_sources
+    description: "Source is transaction_details"
+    columns:
+      - name: CREATED_AT||SOURCE_TYPE
+        tests:
+          - not_null
+      - name: CUSTOMERSID||source_id||CUSTOMER_ID
+        tests:
+          - unique
+          - not_null    
+
+      
