@@ -16,7 +16,7 @@ with bank_source as (
 ),
 
 final as (
-    select BANK_ID,BANK_NAME,BANK_ACCOUNT_NUMBER , BRANCH, IFSC_CODE , CREATED_DATE from bank_source
+    select BANK_ID,BANK_NAME,BANK_ACCOUNT_NUMBER , BRANCH, IFSC_CODE , CREATED_DATE ,LAST_MODIFIED from bank_source
 )
 
 select distinct * from final
@@ -35,7 +35,7 @@ with bank_source as (
 ),
 
 final as (
-    select BANK_ID,BANK_NAME,BANK_ACCOUNT_NUMBER , BRANCH, IFSC_CODE , CREATED_DATE from bank_source
+    select BANK_ID,BANK_NAME,BANK_ACCOUNT_NUMBER , BRANCH, IFSC_CODE , CREATED_DATE ,LAST_MODIFIED from bank_source
 )
 
 select distinct * from final
